@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Информация о пользователе</title>
+</head>
+<body>
+
+<h1>Информация о пользователе</h1>
+
+<div th:if="${user}">
+    <table th:border="0">
+        <tr>
+            <td>ID</td>
+            <td>:</td>
+            <td th:utext="${user.getId()}">...</td>
+        </tr>
+
+        <tr>
+            <td>Имя</td>
+            <td>:</td>
+            <td th:utext="${user.getName()}">...</td>
+        </tr>
+
+        <tr>
+            <td>Фамилия</td>
+            <td>:</td>
+            <td th:utext="${user.getSurname()}">...</td>
+        </tr>
+
+        <tr>
+            <td>Возраст</td>
+            <td>:</td>
+            <td th:utext="${user.getAge()}">...</td>
+        </tr>
+
+        <tr>
+            <td>Город</td>
+            <td>:</td>
+            <td th:utext="${user.getCity()}">...</td>
+        </tr>
+
+        <tr>
+            <td>E-mail</td>
+            <td>:</td>
+            <td th:utext="${user.getEmail()}">...</td>
+        </tr>
+
+    </table>
+
+    <br/>
+    <a th:href="@{/users/{id}/edit(id=${user.getId()})}">Редактировать</a>
+    <br/><br/>
+
+    <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
+        <input type="submit" value="Удалить"/>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Добавление нового пользователя</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/users}" th:object="${user}">
+    <label for="name">Введите имя нового пользователя:</label>
+    <br/>
+    <input type="text" th:field="*{name}" id="name">
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    <br/>
+    <br/>
+    <label for="surname">Введите фамилию нового пользователя:</label>
+    <br/>
+    <input type="text" th:field="*{surname}" id="surname">
+    <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Surname error</div>
+    <br/>
+    <br/>
+    <label for="age">Введите возраст пользователя:</label>
+    <br/>
+    <input type="text" th:field="*{age}" id="age">
+    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+    <br/>
+    <br/>
+    <label for="city">Введите город пользователя:</label>
+    <br/>
+    <input type="text" th:field="*{city}" id="city">
+    <div style="color:red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City error</div>
+    <br/>
+    <br/>
+    <label for="email">Введите емейл пользователя:</label>
+    <br/>
+    <input type="text" th:field="*{email}" id="email">
+    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+    <br/>
+    <br/>
+    <input type="submit" value="Создать!"/>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Все пользователи</title>
+</head>
+<body>
+<h1>Список всех пользователей</h1>
+<div>
+    <table th:border="1">
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Возраст</th>
+            <th>Город</th>
+            <th>E-mail</th>
+            <th>Действия</th>
+
+        </tr>
+
+        <tr th:each="user : ${users}">
+            <td th:utext="${user.getId()}">...</td>
+            <td th:utext="${user.getName()}">...</td>
+            <td th:utext="${user.getSurname()}">...</td>
+            <td th:utext="${user.getAge()}">...</td>
+            <td th:utext="${user.getCity()}">...</td>
+            <td th:utext="${user.getEmail()}">...</td>
+            <td><a th:href="@{/users/{id}(id=${user.getId()})}">Просмотр</a>
+                <br/>
+                <a th:href="@{/users/{id}/edit(id=${user.getId()})}">Редактирование</a>
+                <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
+                    <input type="submit" value="Удаление"/>
+                </form>
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+<br/>
+<div>
+    <nobr>
+        <a href="/users/new">Создать нового пользователя</a>
+    </nobr>
+</div>
+<br/>
+<hr/>
+<a href="/">Вернуться на стартовую страницу</a>
+<!--<a href="/users/new">Create new person</a>-->
+</body>
+</html>
