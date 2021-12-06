@@ -5,33 +5,33 @@
     <title>Добавление нового пользователя</title>
 </head>
 <body>
-
+<h1>Новый пользователь</h1>
 <form th:method="POST" th:action="@{/users}" th:object="${user}">
-    <label for="name">Введите имя нового пользователя:</label>
+    <label for="name">Введите имя:</label>
     <br/>
     <input type="text" th:field="*{name}" id="name">
     <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
     <br/>
     <br/>
-    <label for="surname">Введите фамилию нового пользователя:</label>
+    <label for="surname">Введите фамилию:</label>
     <br/>
     <input type="text" th:field="*{surname}" id="surname">
     <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Surname error</div>
     <br/>
     <br/>
-    <label for="age">Введите возраст пользователя:</label>
+    <label for="age">Введите возраст:</label>
     <br/>
     <input type="text" th:field="*{age}" id="age">
     <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
     <br/>
     <br/>
-    <label for="city">Введите город пользователя:</label>
+    <label for="city">Введите город:</label>
     <br/>
     <input type="text" th:field="*{city}" id="city">
     <div style="color:red" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">City error</div>
     <br/>
     <br/>
-    <label for="email">Введите емейл пользователя:</label>
+    <label for="email">Введите e-mail:</label>
     <br/>
     <input type="text" th:field="*{email}" id="email">
     <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
